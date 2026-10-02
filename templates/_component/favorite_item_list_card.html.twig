@@ -11,20 +11,20 @@
                 {% if item.property3 != null %}
                     <img 
                         class="img-fluid rounded-start-1 object-fit-cover img-card-item" 
-                        src="{{item.imageName ? vich_uploader_asset(item, 'imageFile') : item.property3}}"  
+                        src="{{item.imageName ? vich_uploader_asset(item, 'imageFile')|imagine_filter('my_thumb') : item.property3}}"  
                         alt="..."
                     >    
                 {% else %}
                     <img 
                         class="img-fluid rounded-start-1 object-fit-cover img-card-item" 
-                        src="{{item.imageName ? vich_uploader_asset(item, 'imageFile') : defaultImgUrl}}"  
+                        src="{{item.imageName ? vich_uploader_asset(item, 'imageFile')|imagine_filter('my_thumb') : defaultImgUrl}}"  
                         alt="..." 
                     >    
                 {% endif %}
             {% else %}
                 <img 
                     class="img-fluid rounded-start-1 object-fit-cover img-card-item" 
-                    src="{{item.imageName ? vich_uploader_asset(item, 'imageFile') : defaultImgUrl}}"  
+                    src="{{item.imageName ? vich_uploader_asset(item, 'imageFile')|imagine_filter('my_thumb') : defaultImgUrl}}"  
                     alt="..." 
                 >
             {% endif %}

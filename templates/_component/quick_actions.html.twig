@@ -1,0 +1,39 @@
+
+<div class="row row-cols-2 row-cols-md-4 g-3">
+  <div class="col">
+      <div class="card card-btn-primary h-100 ">
+          <div class="card-body justify-content-center align-items-center d-flex flex-column py-3">
+              <h5 class="card-title"><i class="bi bi-box fs-4"></i></h5>
+              <p class="card-text fw-regular text-center mb-0">Mes objets</p>
+              <a href="{{path('app_items_mine')}}" class="stretched-link"></a>
+          </div>
+      </div>
+  </div>
+  <div class="col">
+      <div class="card card-btn-primary h-100 ">
+          <div class="card-body justify-content-center align-items-center d-flex flex-column py-2 py-md-3">
+              <h5 class="card-title"><i class="bi bi-arrow-up-right fs-4"></i></h5>
+              <p class="card-text fw-regular text-center mb-0">Prêts</p>
+              <a href="{{path('app_list_outgoing_loan')}}" class="stretched-link"></a>
+          </div>
+      </div>
+  </div>
+  <div class="col">
+      <div class="card card-btn-primary h-100 ">
+          <div class="card-body justify-content-center align-items-center d-flex flex-column py-2 py-md-3">
+              <h5 class="card-title"><i class="bi bi-arrow-down-left fs-4"></i></h5>
+              <p class="card-text fw-regular text-center mb-0">Emprunts</p>
+              <a href="{{path('app_list_incoming_loan')}}" class="stretched-link"></a>
+          </div>
+      </div>
+  </div>
+  <div class="col">
+      <div class="card card-btn-primary h-100 ">
+          <div class="card-body justify-content-center align-items-center d-flex flex-column py-2 py-md-3">
+              <h5 class="card-title"><i class="bi bi-archive fs-4"></i></h5>
+              <p class="card-text fw-regular text-center mb-0">Mes boîtes</p>
+              <a href="{{path('app_circle')}}" class="stretched-link"></a>
+          </div>
+      </div>
+  </div>
+</div>

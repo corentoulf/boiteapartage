@@ -223,8 +223,8 @@ class AppItemController extends AbstractController
     {
         $item = $em->getRepository(Item::class)->find($id);
         $ic = $item->getItemType()->getCategory();
-
-        if (!$item instanceof \App\Entity\Item) {
+        // Check item exists
+        if (!$item instanceof Item) {
             throw $this->createNotFoundException(
                 'L\'objet n\'a pas été trouvé.'
             );
@@ -238,6 +238,7 @@ class AppItemController extends AbstractController
 
         switch ($ic->getCode()) {
             case 'bibliotheque':
+                // check book was QR-scanned or not to prevent edition of autocompleted elements
                 $canEditInfo = true;
                 if($item->getProperty4() !== null){
                     $canEditInfo = false;
@@ -249,14 +250,11 @@ class AppItemController extends AbstractController
                 ]);
                 $form->handleRequest($request);
                 if ($form->isSubmitted() && $form->isValid()) {
-                    
                     $em->persist($item);
                     $em->flush();
                     $this->addFlash('success', 'L\'objet a bien été mis à jour');
                     return $this->redirectToRoute('app_items_mine');
                 }
-        
-        
                 return $this->render('app_item/update/book.html.twig', [
                     'controller_name' => 'AppCircleController',
                     'itemCategory' => $ic,
@@ -266,17 +264,16 @@ class AppItemController extends AbstractController
             default:
                 $form = $this->createForm(ItemDefaultFormType::class, $item, [
                     'update_mode' => true,
-                    'itemCategory' => $ic
+                    'itemCategory' => $ic,
+                    
                 ]);
                 $form->handleRequest($request);
                 if ($form->isSubmitted() && $form->isValid()) {
-                    
                     $em->persist($item);
                     $em->flush();
                     $this->addFlash('success', 'L\'objet a bien été mis à jour');
                     return $this->redirectToRoute('app_items_mine');
                 }
-        
         
                 return $this->render('app_item/update/default.html.twig', [
                     'controller_name' => 'AppCircleController',

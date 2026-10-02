@@ -35,7 +35,7 @@ class UserFavoriteItemRepository extends ServiceEntityRepository
        {
            return $this->createQueryBuilder('u')
                ->andWhere('u.user = :uid')
-               ->andWhere('u.item_id = :iid')
+               ->andWhere('u.item = :iid')
                ->setParameter('uid', $user)
                ->setParameter('iid', $item)
                ->getQuery()

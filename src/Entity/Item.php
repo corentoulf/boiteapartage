@@ -32,6 +32,12 @@ class Item
     #[ORM\OneToMany(targetEntity: ItemCircle::class, mappedBy: 'item', cascade: ['persist'], orphanRemoval: true)]
     private Collection $itemCircles;
 
+    /**
+     * @var Collection<int, UserFavoriteItem>
+     */
+    #[ORM\OneToMany(targetEntity: UserFavoriteItem::class, mappedBy: 'item',  cascade: ['persist'], orphanRemoval: true)]
+    private Collection $itemFavoriteItems;
+
     #[ORM\ManyToOne(inversedBy: 'items')]
     private ?ItemType $itemType = null;
 

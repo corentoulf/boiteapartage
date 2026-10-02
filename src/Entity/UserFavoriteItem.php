@@ -12,8 +12,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 //     message: 'Cet objet est déjà dans vos favoris.',
 //     errorPath: 'user',
 // )]
-#[ORM\UniqueConstraint(name: 'UNIQ_ITEM_PER_USER', fields: ['user', 'item_id'])]
-#[UniqueEntity(fields: ['user', 'item_id'], message: 'L\'objet est déjà dans les favoris')]
+#[ORM\UniqueConstraint(name: 'UNIQ_ITEM_PER_USER', fields: ['user', 'item'])]
+#[UniqueEntity(fields: ['user', 'item'], message: 'L\'objet est déjà dans les favoris')]
 class UserFavoriteItem
 {
     #[ORM\Id]
@@ -25,9 +25,9 @@ class UserFavoriteItem
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'itemFavoriteItems')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Item $item_id = null;
+    private ?Item $item = null;
 
     #[ORM\Column]
     private ?\DateTime $created_at = null;
@@ -49,14 +49,14 @@ class UserFavoriteItem
         return $this;
     }
 
-    public function getItemId(): ?Item
+    public function getItem(): ?Item
     {
-        return $this->item_id;
+        return $this->item;
     }
 
-    public function setItemId(?Item $item_id): static
+    public function setItem(?Item $item): static
     {
-        $this->item_id = $item_id;
+        $this->item = $item;
 
         return $this;
     }

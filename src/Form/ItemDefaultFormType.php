@@ -90,8 +90,9 @@ class ItemDefaultFormType extends AbstractType
             $form = $event->getForm();
 
             $imageFile = $form->get('imageFile')->getData();
+            $imageName = $form->getData()->getImageName();
 
-            if (empty($imageFile)) {
+            if (empty($imageFile) && empty($imageName)) {
                 $form->addError(new \Symfony\Component\Form\FormError(
                     "Merci d'ajouter une photo de l'objet."
                 ));

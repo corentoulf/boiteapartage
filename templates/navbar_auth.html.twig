@@ -18,14 +18,14 @@
                     </form>
                     
                 </li>
-                <li class="d-none nav-item mt-2 mt-lg-0 text-bg-primary">
+                {# <li class="d-none nav-item mt-2 mt-lg-0 text-bg-primary">
                     <div class="d-flex flex-column justify-content-center align-items-center mx-2 position-relative">
                         <span class=""><i class="bi bi-heart fs-5"></i></span>
                         <a class="small stretched-link fw-light text-bg-primary link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-75-hover" href="{{ path('app_user_favorite_items') }}">
                             Favoris
                         </a>
                     </div>
-                </li>
+                </li> #}
                 <li class="d-none nav-item mt-2 mt-lg-0 text-bg-primary">
                     <div class="d-flex flex-column justify-content-center align-items-center mx-2 position-relative">
                         <span class=""><i class="bi bi-person-circle fs-5"></i></span>
@@ -81,10 +81,11 @@
       <div class="modal-body px-0">
         <div class="px-2 ">
             <div class="d-grid gap-2 ">
+                <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_auth_home') }}"><i class="bi bi-house me-2"></i>Accueil</a>
                 <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_item_create') }}"><i class="bi bi-plus-square me-2"></i>Proposer un nouvel objet</a>
-                <a class="d-none ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_items_search', parameters = {q: ''}) }}"><i class="bi bi-search me-2"></i>Rechercher un objet</a>
-                <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_items_mine') }}"><i class="bi bi-bookshelf me-2"></i>Mon Placard</a>
-                <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_user_favorite_items') }}"><i class="bi bi-heart me-2"></i>Objets Favoris</a>
+                <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_items_mine') }}"><i class="bi bi-box me-2"></i>Mes objets</a>
+                <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_circle') }}"><i class="bi bi-archive me-2"></i>Mes boîtes</a>
+                {# <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_user_favorite_items') }}"><i class="bi bi-heart me-2"></i>Objets Favoris</a> #}
             </div>
         </div>
         {# section separator #}
@@ -94,16 +95,6 @@
             <div class="d-grid gap-2 ">
                 <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_list_incoming_loan') }}"><i class="bi bi-arrow-down-left me-2"></i>Emprunts</a>
                 <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_list_outgoing_loan') }}"><i class="bi bi-arrow-up-right me-2"></i>Prêts</a>
-            </div>
-        </div>
-        {# section separator #}
-        <hr class="border border-1 opacity-100">
-        {# Section primary actions #}
-        <div class="px-2">
-            <div class="d-grid gap-2 ">
-                <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_circle') }}"><i class="bi bi-archive me-2"></i>Mes Boîtes</a>
-                <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_circle_create') }}"><i class="bi bi-plus-square me-2"></i>Créer une boîte</a>
-                <a class="ps-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 text-start" href="{{ path('app_circle_join') }}"><i class="bi bi-arrow-right-square me-2"></i>Rejoindre une boîte</a>
             </div>
         </div>
         {# section separator #}

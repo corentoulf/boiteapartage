@@ -115,8 +115,10 @@ class ItemBookFormType extends AbstractType
 
             $imageFile = $form->get('imageFile')->getData();
             $link = $form->get('property_3')->getData();
+            $imageName = $form->getData()->getImageName();
 
-            if (empty($imageFile) && empty($link)) {
+
+            if (empty($imageFile) && empty($link) && empty($imageName)) {
                 $form->addError(new \Symfony\Component\Form\FormError(
                     "Merci d'ajouter une photo du livre."
                 ));

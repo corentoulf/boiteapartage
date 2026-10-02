@@ -6,7 +6,7 @@
 
 <div class="container min-vh-100">
     <div class="col-md-8 offset-md-2 px-2 py-3 p-lg-5">
-        {{ include('_component/_header_title.html.twig', {targetLabel: "Mon placard", targetPath:path(name = 'app_items_mine'), pageTitle:"Modifier un livre"}) }}
+        {{ include('_component/_header_title.html.twig', {targetLabel: "Mes objets", targetPath:path(name = 'app_items_mine'), pageTitle:"Modifier un livre"}) }}
 
         {# step 2 : ajout manuel ou pré-remplissage depuis scan #}
         <div class="card bg-cream border-0 p-4 mt-4" >
@@ -49,7 +49,7 @@
                                         {% if item.property3 %}
                                             src="{{item.property3}}"  
                                         {% else %}
-                                            src="{{vich_uploader_asset(item, 'imageFile')}}"  
+                                            src="{{vich_uploader_asset(item, 'imageFile')|imagine_filter('my_thumb')}}"  
                                         {% endif %}
                                     {% else %}
                                         style="display:none;"
